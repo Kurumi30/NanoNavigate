@@ -1,35 +1,16 @@
-import { Request, Response, Router } from "express"
-import Controller from "../controllers"
+import { Router } from "express"
+import Actions from "../middlewares/actions"
 
 const routes = Router()
-const controller = new Controller()
 
-routes.get("/", (req: Request, res: Response) => {
-  return res.status(200).json({ info: "I'm working!" })
-})
+routes.get("/", Actions.index)
 
-routes.post("/shorter", async (req: Request, res: Response) => {
-  if (!req.body.url) {
-    return res.status(400).json({ error: "Url not found" })
-  }
+routes.post("/shorter", Actions.shorter)
 
-  if (!req.body.url.startsWith("http://") && !req.body.url.startsWith("https://")) {
-    return res.status(400).json({ error: "Invalid url" })
-  }
+routes.get("/:hash", Actions.redirect)
 
-  try {
-    const url = await controller.urlShortener(req.body.url, req.get("host"))
-
-    res.status(200).json({ url })
-  } catch (err) {
-    console.error(err)
-
-    return res.status(500).json({ error: "Internal error server" })
-  }
-})
-
-routes.get("/:hash", async (req: Request, res: Response) => {
-  await controller.redirectUrl(req.params.hash, res)
-})
+// routes.get("*", (req: Request, res: Response) => {
+//   return res.status(404).json({ error: "Page not found" })
+// })
 
 export default routes

@@ -1,6 +1,7 @@
 import { Response } from "express"
 import { readFileSync, writeFileSync } from "fs"
 import { SaveData, Host } from "../interfaces/general"
+import { handleErrors } from "../middlewares/actions"
 
 const db = "database/urls.json"
 const saveToDatabase: SaveData[] = JSON.parse(readFileSync(db).toString())
@@ -34,7 +35,7 @@ export default class Controller {
     if (element) {
       return response.redirect(301, element.originalUrl)
     } else {
-      return response.status(404).json({ error: "Url not found!" })
+      return handleErrors(response, 404, "Url not found")
     }
   }
 }
