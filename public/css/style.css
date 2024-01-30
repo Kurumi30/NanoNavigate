@@ -1,0 +1,37 @@
+p {
+  color: rgb(115, 153, 29);
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+#shortenedUrl {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: .2s;
+  color: #125871;
+}
+
+#shortenedUrl:hover {
+  color: #080816;
+}
+
+#copyButton {
+  width: 90%;
+  background-color: #008cba;
+  color: rgb(244, 242, 242);
+  padding: 10px 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+#copyButton:hover {
+  background-color: #0077a3;
+}
