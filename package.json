@@ -1,13 +1,12 @@
 {
-  "name": "url-shortener",
-  "version": "1.2.0",
+  "name": "nanonavigate",
+  "version": "1.2.2",
   "description": "Uma api para encurtar urls",
   "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev src/server.ts -e ts",
     "build": "rimraf build && tsc",
-    "start": "node build/server.js",
-    "test": ""
+    "start": "node build/server.js"
   },
   "repository": {
     "type": "git",

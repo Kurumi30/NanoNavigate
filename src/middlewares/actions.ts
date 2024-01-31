@@ -22,7 +22,9 @@ export default class Actions {
     }
 
     try {
-      const url = await controller.urlShortener(bodyUrl, req.get("host"))
+      // const url = await controller.urlShortener(bodyUrl, req.get("host"))
+      const subDomain = "nanonavigate.is-a.dev"
+      const url = await controller.urlShortener(bodyUrl, subDomain)
 
       res.status(200).json({ url })
     } catch (err) {
