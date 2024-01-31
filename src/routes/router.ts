@@ -5,8 +5,6 @@ const routes = Router()
 
 routes.get("/", Actions.index)
 
-routes.get("/database", Actions.database)
-
 routes.post("/shorter", Actions.shorter)
 
 routes.get("/:hash", Actions.redirect)

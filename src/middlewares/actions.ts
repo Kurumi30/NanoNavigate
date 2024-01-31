@@ -10,10 +10,6 @@ export default class Actions {
     return res.status(200).sendFile(join(__dirname, "..", "..", "public", "index.html"))
   }
 
-  public static database(req: Request, res: Response) {
-    return res.status(200).sendFile(join(__dirname, "..", "..", "public", "database.html"))
-  }
-
   public static async shorter(req: Request, res: Response) {
     const bodyUrl: Host = req.body.url
 
@@ -22,8 +18,7 @@ export default class Actions {
     }
 
     try {
-      // const url = await controller.urlShortener(bodyUrl, req.get("host"))
-      const subDomain = "nanonavigate.is-a.dev"
+      const subDomain = "nanonavigate.is-a.dev" // req.get("host"))
       const url = await controller.urlShortener(bodyUrl, subDomain)
 
       res.status(200).json({ url })
