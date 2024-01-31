@@ -7,7 +7,7 @@
   <meta name="description"
     content="Links curtos, grandes possibilidades. Nunca mais se preocupe com URLs longas e complicadas.">
   <meta name="keywords" content="url-shortener, encurtador-link, short-url">
-  <meta name="google-site-verification" content="st0-K73j6fDu4nL9EeNVTh0-_BK28q-sln7iF1EzzvE"/>
+  <meta name="google-site-verification" content="st0-K73j6fDu4nL9EeNVTh0-_BK28q-sln7iF1EzzvE" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NanoNavigate</title>
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
+  <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js" defer></script>
   <script src="js/app.js" defer></script>
 </head>
@@ -22,14 +23,20 @@
 <body>
   <header>
     <nav>
-      <div>
-        <a href="/database">Local Storage</a>
+      <div class="theme">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
       </div>
+
       <div class="logos">
-        <a href="https://github.com/Kurumi30">
+        <a href="https://github.com/Kurumi30" target="_blank">
           <img src="/assets/github.svg" alt="github logo">
         </a>
-        <a href="https://www.linkedin.com/in/fernando-zhu-desenvolvedor-web/">
+        <a href="https://www.linkedin.com/in/fernando-zhu-desenvolvedor-web/" target="_blank">
           <img src="/assets/linkedin.svg" alt="linkedin logo">
         </a>
       </div>

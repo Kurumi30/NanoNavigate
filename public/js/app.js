@@ -1,4 +1,5 @@
 const urlForm = document.getElementById("url-form")
+const checkbox = document.getElementById("checkbox")
 
 const notyf = new Notyf({
   duration: 2500,
@@ -38,7 +39,14 @@ async function showUrl(url) {
 
   newButton.onclick = copyUrl
   newButton.id = "copyButton"
-  newButton.innerText = "Copiar link"
+  newButton.innerHTML = `Copiar link <i class="fas fa-copy"></i>`
+
+  newButton.addEventListener("click", () => {
+    newButton.innerHTML = `<i class="fas fa-check"></i>`
+    setTimeout(() => {
+      newButton.innerHTML = `Copiar link <i class="fas fa-copy"></i>`
+    }, 4000)
+  })
 
   main.appendChild(newSection)
   newSection.appendChild(newUrl)
@@ -73,4 +81,8 @@ urlForm.addEventListener("submit", async (e) => {
   } catch (err) {
     return notyf.error("Ocorreu um erro no servidor.\n" + err)
   }
+})
+
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
 })

@@ -6,6 +6,7 @@
 
 body {
   font-family: "Consolas", sans-serif;
+  background-color: rgb(244, 242, 242);
 }
 
 header {
@@ -19,11 +20,69 @@ nav {
   height: 50px;
 }
 
-nav > div:first-child {
+/* nav > div:first-child {
   grid-column: 1 / 2;
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+body.dark {
+  background: #2e3844;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s ease-in-out;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(17px);
+}
+
+.label {
+  cursor: pointer;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #4caf50;
+  padding: 6px;
+  position: relative;
+  height: 20px;
+  width: 41px;
+  transform: scale(1.5);
+  justify-content: space-between;
+}
+
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 2px;
+  height: 20px;
+  width: 20px;
+  transform: translateX(0px);
+  transition: transform .2s linear;
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.fas {
+  font-size: 12px;
 }
 
 nav > div:last-child {
