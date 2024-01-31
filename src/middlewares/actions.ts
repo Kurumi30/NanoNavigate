@@ -10,8 +10,12 @@ export default class Actions {
     return res.status(200).sendFile(join(__dirname, "..", "..", "public", "index.html"))
   }
 
+  public static database(req: Request, res: Response) {
+    return res.status(200).sendFile(join(__dirname, "..", "..", "public", "database.html"))
+  }
+
   public static async shorter(req: Request, res: Response) {
-    const bodyUrl: Host | any = req.body.url
+    const bodyUrl: Host = req.body.url
 
     if (!bodyUrl || !bodyUrl.startsWith("http://") && !bodyUrl.startsWith("https://")) {
       return handleErrors(res, 400, !bodyUrl ? "Missing url" : "Invalid url")
