@@ -60,4 +60,12 @@ export default class Controller implements IController {
       return handleErrors(response, 404, "Url not found")
     }
   }
+
+  public queryDatabase() {
+    const data: string = readFileSync(db, "utf-8")
+    const json: SaveData[] = JSON.parse(data)
+    const url = json.map((item: any) => item.originalUrl)
+
+    return url
+  }
 }

@@ -38,6 +38,16 @@ export default class Actions {
       return handleErrors(res, 500, "Internal server error")
     }
   }
+
+  public static async queryDb(req: Request, res: Response) {
+    try {
+      res.status(200).json(controller.queryDatabase())
+    } catch (err) {
+      console.error(err)
+
+      return handleErrors(res, 500, "Internal server error")
+    }
+  }
 }
 
 export function handleErrors(res: Response, status: number, err?: string | undefined) {
