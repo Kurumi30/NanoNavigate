@@ -1,7 +1,29 @@
 import { Response } from "express"
-import { readFileSync, writeFileSync } from "fs"
-import { SaveData, Host } from "../interfaces/general"
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs"
+import { SaveData, Host, IController } from "../interfaces/general"
 import { handleErrors } from "../middlewares/actions"
+import { join } from "path"
+
+function createDatabase() {
+  const path = join(__dirname, "..", "..", "database")
+  const file = join(path, "urls.json")
+
+  if (!existsSync(path)) {
+    mkdirSync(path, { recursive: true })
+
+    console.log("Database folder created")
+  }
+
+  if (!existsSync(file)) {
+    writeFileSync(file, "[]", "utf-8")
+
+    console.log("Database file created")
+  }
+
+  return console.log("Database already exists")
+}
+
+createDatabase()
 
 const db = "database/urls.json"
 const saveToDatabase: SaveData[] = JSON.parse(readFileSync(db).toString())
@@ -17,7 +39,7 @@ function getProtocol(host: Host): Promise<string> {
 
 }
 
-export default class Controller {
+export default class Controller implements IController {
   public async urlShortener(originalUrl: string, host: Host) {
     const code: string = crypto.randomUUID().split("-")[0]
     const created_at: string = new Date().toLocaleTimeString("pt-BR", { hour12: false })
